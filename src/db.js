@@ -62,8 +62,12 @@ Course.belongsToMany(Students, {through: "Enroll"})
 Students.belongsToMany(Course, {through: "Enroll"})
 Course.belongsToMany(Students, {through: "Certificate"})
 Students.belongsToMany(Course, {through: "Certificate"})
-
-
+Students.hasMany(Order, {foreignKey: "id"})
+Order.belongsTo(Students, {foreignKey: "id"})
+Order.belongsToMany(Course, {through: "OrderItem"})
+Course.belongsToMany(Order, {through: "OrderItem"})
+OrderItem.belongsToMany(Course, {through: "Payment"})
+Course.belongsToMany(OrderItem, {through: "Payment"})
 
 
 
