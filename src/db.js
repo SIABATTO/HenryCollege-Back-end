@@ -42,8 +42,8 @@ const {
 // Aca vendrian las relaciones
 Course.hasMany(Feedback)
 Feedback.belongsTo(Course)
-Course.belongsToMany(Students, { through: Order })
-Students.belongsToMany(Course, { through: Order })
+Course.belongsToMany(Students, { through: "courseNstudents" })
+Students.belongsToMany(Course, { through: "courseNstudents" })
 Course.hasMany(OrderItem)
 OrderItem.belongsTo(Course)
 Course.belongsTo(Teachers)
