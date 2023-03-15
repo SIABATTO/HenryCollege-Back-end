@@ -40,22 +40,32 @@ const {
 } = sequelize.models;
 
 // Aca vendrian las relaciones
-Course.hasMany(Feedback)
-Feedback.belongsTo(Course)
-Course.belongsToMany(Students, { through: Order })
-Students.belongsToMany(Course, { through: Order })
-Course.hasMany(OrderItem)
-OrderItem.belongsTo(Course)
-Course.belongsTo(Teachers)
-Teachers.hasMany(Course)
-Students.hasMany(Feedback)
-Feedback.belongsTo(Students)
-Teachers.hasMany(Feedback)
-Feedback.belongsTo(Teachers)
-Order.hasMany(OrderItem)
-OrderItem.belongsTo(Order)
-Students.hasMany(Order)
-Order.belongsTo(Students)
+// Course.hasMany(Feedback)
+// Feedback.belongsTo(Course)
+// Course.belongsToMany(Students, { through: Order })
+// Students.belongsToMany(Course, { through: Order })
+// Course.hasMany(OrderItem)
+// OrderItem.belongsTo(Course)
+// Course.belongsTo(Teachers)
+// Teachers.hasMany(Course)
+// Students.hasMany(Feedback)
+// Feedback.belongsTo(Students)
+// Teachers.hasMany(Feedback)
+// Feedback.belongsTo(Teachers)
+// Order.hasMany(OrderItem)
+// OrderItem.belongsTo(Order)
+// Students.hasMany(Order)
+// Order.belongsTo(Students)
+Course.belongsToMany(Teachers, { through: "Feedback"})
+Teachers.belongsToMany(Course, { through: "Feedback"})
+Course.belongsToMany(Students, {through: "Enroll"})
+Students.belongsToMany(Course, {through: "Enroll"})
+Course.belongsToMany(Students, {through: "Certificate"})
+Students.belongsToMany(Course, {through: "Certificate"})
+
+
+
+
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
