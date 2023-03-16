@@ -39,6 +39,7 @@ const {
   Teachers
 } = sequelize.models;
 
+
 // Aca vendrian las relaciones
 Course.hasMany(Feedback)
 Feedback.belongsTo(Course)
