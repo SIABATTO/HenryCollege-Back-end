@@ -31,5 +31,14 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false
         },
+        videoSrc: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        imageSrc:{
+            type: DataTypes.STRING,
+            allowNull: true,
+            defaultValue: "https://img-19.ccm.net/XB_5ol3UJEsQxV--zVK2MflRt0U=/480x335/smart/79c6e29832774ae9a0ce323c9f8a85e7/ccmcms-esccm/31899037.jpg"
+        }
     })
 }

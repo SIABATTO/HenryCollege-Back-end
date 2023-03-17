@@ -1,0 +1,49 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "name": "Curso1",
+      "tags": [
+        "HTML"
+      ],
+      "level": "alto",
+      "duration": 1,
+      "price": "100",
+      "description": "Una description larga",
+      "teacherId": 1
+    },
+    {
+      "id": 2,
+      "name": "Curso2",
+      "tags": [
+        "HTML"
+      ],
+      "level": "alto",
+      "duration": 2,
+      "price": "200",
+      "description": "Una description larga2",
+      "teacherId": 1
+    },
+    {
+      "id": 3,
+      "name": "Curso3",
+      "tags": [
+        "HTML"
+      ],
+      "level": "alto",
+      "duration": 3,
+      "price": "300",
+      "description": "Una description larga3",
+      "teacherId": 1
+    }
+  ],
+  "teachers": [
+    {
+      "id": 1,
+      "firstName": "ramon",
+      "lastName": "valdez",
+      "email": "jgkhgkh@on.com",
+      "phone": "312659896"
+    }
+  ]
+}
