@@ -1,24 +1,24 @@
-const {Course, Teachers} = require("../../db")
+const { Course, Teachers } = require("../../db");
 
-const createCourse = async (course) =>{
-    const newCourse = await Course.create({
-        name: course.name,
-        tags: course.tags,
-        level: course.level,
-        duration: course.duration,
-        price: course.price,
-        description: course.description,
-    })
+const createCourse = async (course) => {
+  const newCourse = await Course.create({
+    name: course.name,
+    tags: course.tags,
+    level: course.level,
+    duration: course.duration,
+    price: course.price,
+    description: course.description,
+  });
 
-    console.log('add', newCourse.addTeachers);
+  console.log("add", newCourse.addTeachers);
 
-    let teacher = await Teachers.findAll({
-        where: { id: course.teacherId },
-      });
+  let teacher = await Teachers.findAll({
+    where: { id: course.teacherId },
+  });
 
-    // console.log(teacher);
+  // console.log(teacher);
 
-    return newCourse;
-}
+  return newCourse;
+};
 
 module.exports = createCourse;
