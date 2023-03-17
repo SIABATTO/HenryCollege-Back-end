@@ -26,7 +26,7 @@ const handleCourse = async (req, res) => {
         page: page + 1,
       };
     }
-    // código hecho por Andrés Casas
+    
     if (start > 0) {
       results.previous = {
         page: page - 1,

@@ -1,6 +1,6 @@
 const getId = require("../../controllers/courseControllers/forId")
 
-const handlerId = async(req, res) => {
+const idHandler = async(req, res) => {
     const {id} = req.params
     const resultId = await getId(id)
     try {
@@ -10,4 +10,4 @@ const handlerId = async(req, res) => {
     }
 }
 
-module.exports = handlerId
+module.exports = idHandler
