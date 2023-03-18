@@ -1,4 +1,4 @@
-const createCourse = require("../../controllers/courseControllers/postController")
+/*const createCourse = require("../../controllers/courseControllers/postController")
 
 const postHandler = async (req, res) => {
   const { name, tags, level, duration, price, description, teacherId } = req.body
@@ -20,4 +20,4 @@ const postHandler = async (req, res) => {
   }
 }
 
-module.exports = postHandler
+module.exports = postHandler*/

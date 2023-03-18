@@ -5,12 +5,7 @@ module.exports = (sequelize) => {
             type: DataTypes.INTEGER,
             primaryKey: true,
         },
-        active: {
-            type: DataTypes.BOOLEAN,
-            default: true,
-            allowNull: false,
-        },
-        firstName: {
+       firstName: {
             type: DataTypes.STRING,
             allowNull: false,
         },
@@ -23,9 +18,20 @@ module.exports = (sequelize) => {
             allowNull: false,
             unique: true
         },
+        password:{
+             type: DataTypes.INTEGER,
+             allowNull:false,
+             unique: true
+        },
         phone: {
             type: DataTypes.INTEGER,
             allowNull: true
         }
     })
-}
+} 
+
+/*active: {
+    type: DataTypes.BOOLEAN,
+    default: true,
+    allowNull: false,
+},*/

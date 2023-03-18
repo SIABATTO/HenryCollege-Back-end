@@ -1,9 +1,9 @@
 const {
   getCourses,
   courseFilter,
-} = require("../../controllers/courseControllers/forCourse"); //lo que viene del controller
+} = require("../../controllers/forCourse/getController"); //lo que viene del controller
 
-const handleCourse = async (req, res) => {
+const getHandler = async (req, res) => {
   const { name, level, duration } = req.query;
   const page = parseInt(req.query.page);
   const limit = 3;
@@ -43,4 +43,4 @@ const handleCourse = async (req, res) => {
   }
 };
 
-module.exports = handleCourse;
+module.exports = getHandler;

@@ -1,4 +1,4 @@
-const {getCourses} = require("./forCourse")
+const {getCourses} = require("./getController")
 
 const getId = async(id) => {
 const allCourse = await getCourses()

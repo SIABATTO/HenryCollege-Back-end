@@ -1,4 +1,4 @@
-const { Course, Teachers } = require("../../db");
+/*const { Course, Teachers } = require("../../db");
 
 const createCourse = async (course) => {
   const newCourse = await Course.create({
@@ -21,4 +21,4 @@ const createCourse = async (course) => {
   return newCourse;
 };
 
-module.exports = createCourse;
+module.exports = createCourse;*/

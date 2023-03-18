@@ -1,4 +1,4 @@
-const getId = require("../../controllers/courseControllers/forId")
+const getId = require("../../controllers/forCourse/idController")
 
 const idHandler = async(req, res) => {
     const {id} = req.params
