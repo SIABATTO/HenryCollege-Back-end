@@ -2,7 +2,7 @@ const {Students, Course} = require("../../db")
 
 
 const createStudent = async(info) =>{
-    const{firstName,lastName,email,password,phone, id} = info
+    const{firstName,lastName,email,password,phone} = info
     const newStudent = await Students.create({
         firstName,
         lastName,
