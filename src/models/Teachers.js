@@ -2,9 +2,10 @@ const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
     sequelize.define("Teachers", {
-        id: { // se va a ingresar con el id de auth0
+        id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
+            autoIncrement: true,
         },
         firstName: {
             type: DataTypes.STRING,

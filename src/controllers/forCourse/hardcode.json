@@ -1,45 +1,47 @@
 {
   "courses": [
     {
-      "id": 1,
-      "name": "Curso1",
+      "name": "Curso HTML & CSS y Fundamentos CSS",
       "tags": [
         "HTML"
       ],
-      "level": "alto",
-      "duration": 1,
-      "price": "100",
-      "description": "Una description larga",
-      "teacherId": 1
+      "level": "Basico",
+      "duration": "2",
+      "price": "50",
+      "description": "En este curso te enseñamos los fundamentos de CSS, el lenguaje que define la presentación del contenido en la web.",
+      "videoSrc": "https://www.youtube.com/embed/K3xmRF8ab1o",
+      "imageSrc": "https://i.ytimg.com/vi/K3xmRF8ab1o/maxresdefault.jpg",
+      "TeacherId": 1
     },
     {
-      "id": 2,
-      "name": "Curso2",
+      "name": "Curso Bootstrap",
       "tags": [
-        "HTML"
+        "Framework"
       ],
       "level": "alto",
       "duration": 2,
       "price": "200",
-      "description": "Una description larga2",
-      "teacherId": 1
+      "description": "En este curso te enseñamos a usar BootStrap el Framework Frontend más popular para crear interfaces web",
+      "videoSrc": "https://www.youtube.com/embed/ng8ur8KNrpU",
+      "imageSrc": "https://i.ytimg.com/vi_webp/ng8ur8KNrpU/sddefault.webp",
+      "TeacherId": 1
     },
     {
-      "id": 3,
-      "name": "Curso3",
+      "name": "Curso JavaScript- constanes",
       "tags": [
         "HTML"
       ],
-      "level": "alto",
+      "level": "intermedio",
       "duration": 3,
       "price": "300",
-      "description": "Una description larga3",
-      "teacherId": 1
+      "description": "En este video te explicamos cómo y cuando usar constantes",
+      "videoSrc": "https://www.youtube.com/embed/PIHZRj99nHU",
+      "imageSrc": "https://i.ytimg.com/vi/PIHZRj99nHU/sddefault.jpg",
+      "TeacherId": 1
     }
   ],
   "teachers": [
     {
-      "id": 1,
       "firstName": "ramon",
       "lastName": "valdez",
       "email": "jgkhgkh@on.com",

@@ -1,11 +1,9 @@
 const {
-  getCourses,
-  courseFilter,
+  getCoursesWithFilters,
 } = require("../../controllers/forCourse/getController"); //lo que viene del controller
 
 const getHandler = async (req, res) => {
-  const { name, level, duration } = req.query;
-  const page = parseInt(req.query.page);
+  const page = req.query.page ? parseInt(req.query.page) : 1;
   const limit = 3;
 
   const start = (page - 1) * limit;
@@ -14,12 +12,7 @@ const getHandler = async (req, res) => {
   const results = {};
 
   try {
-    const result = await getCourses();
-
-    if (name || level || duration) {
-      const filteredCourses = await courseFilter({ name, level, duration });
-      return filteredCourses;
-    }
+    const result = await getCoursesWithFilters(req.query);
 
     if (end < result.length) {
       results.next = {
