@@ -3,6 +3,7 @@ module.exports = (sequelize) => {
     sequelize.define("Students", {
         id: {
             type: DataTypes.INTEGER,
+            autoIncrement: true,
             primaryKey: true,
         },
        firstName: {
@@ -19,12 +20,12 @@ module.exports = (sequelize) => {
             unique: true
         },
         password:{
-             type: DataTypes.INTEGER,
+             type: DataTypes.STRING,
              allowNull:false,
              unique: true
         },
         phone: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: true
         }
     })
