@@ -1,4 +1,4 @@
-const getStudents = require("../../controllers/forStudents/getController");
+const getStudents  = require("../../controllers/forStudents/getController");
 
 const getHandler = async (req, res) => {
   const { name } = req.query;
@@ -10,9 +10,9 @@ const getHandler = async (req, res) => {
         : res.status(404).json("users not found");
     } else {
       const filtered = found.filter((e) =>{
-        return e.dataValues.firstName.toLowerCase().includes(name.toLowerCase())}
-        
+        return e.firstName.toLowerCase().includes(name.toLowerCase())}
       );
+      res.status(200).json(filtered)
     }
   } catch (error) {
     res.status(400).json({ error: error.message });
