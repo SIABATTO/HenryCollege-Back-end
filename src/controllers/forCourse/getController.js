@@ -12,6 +12,8 @@ const getCourses = async () => {
             duration: e.duration,
             price: e.price,
             description: e.description,
+            imageSrc: e.imageSrc,
+            videoSrc: e.videoSrc,
         };
     });
     return resultMap;
