@@ -47,8 +47,10 @@ Course.belongsToMany(Students, { through: "courseNstudents" })
 Students.belongsToMany(Course, { through: "courseNstudents" })
 Course.hasMany(OrderItem)
 OrderItem.belongsTo(Course)
-Course.belongsTo(Teachers)
-Teachers.hasMany(Course)
+Teachers.hasMany(Course, {
+  foreignKey: 'teacherId'
+});
+Course.belongsTo(Teachers);
 Students.hasMany(Feedback)
 Feedback.belongsTo(Students)
 Teachers.hasMany(Feedback)
