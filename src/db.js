@@ -3,10 +3,12 @@ const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
 const {
-  DB_USER, DB_PASSWORD, DB_HOST,
+  // DB_USER, DB_PASSWORD, DB_HOST, /* usar en local host */
+  DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, /* usar cuando se haga deploy */
 } = process.env;
 
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/HenryCollege`, {
+const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`, {  /* usar en local host */
+// const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/HenryCollege`, {  /* usar cuando se haga deploy */
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 });
