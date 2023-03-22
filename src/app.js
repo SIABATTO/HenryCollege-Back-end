@@ -5,7 +5,6 @@ const morgan = require("morgan")
 const router = require("./routes/index")
 
 const app = express()
-app.name = 'API';
 app.use(cors())
 app.use(express.json()) // esto reemplaza la dependencia body parser
 app.use(express.urlencoded({ extended: true })) // esto reemplaza la dependencia body parser
