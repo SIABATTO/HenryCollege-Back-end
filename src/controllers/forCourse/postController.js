@@ -1,24 +1,34 @@
-/*const { Course, Teachers } = require("../../db");
+const { sequelize } = require("../../db");
 
-const createCourse = async (course) => {
-  const newCourse = await Course.create({
-    name: course.name,
-    tags: course.tags,
-    level: course.level,
-    duration: course.duration,
-    price: course.price,
-    description: course.description,
+const createCourse = async (info) => {
+  const {Course} = sequelize.models;
+  const {
+    name,
+    tags,
+    level,
+    duration,
+    price,
+    description,
+    videoSrc,
+    imageSrc,
+    teacherId,
+  } = info;
+
+  const newCourse = await Course.findOrCreate({
+    where: { name: name },
+    defaults: {
+      tags,
+      level,
+      duration,
+      price,
+      description,
+      videoSrc,
+      imageSrc,
+      teacherId
+    },
   });
-
-  console.log("add", newCourse.addTeachers);
-
-  let teacher = await Teachers.findAll({
-    where: { id: course.teacherId },
-  });
-
-  // console.log(teacher);
 
   return newCourse;
 };
 
-module.exports = createCourse;*/
+module.exports = createCourse;
