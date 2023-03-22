@@ -2,10 +2,7 @@ const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
     sequelize.define("Teachers", {
-        id: { // se va a ingresar con el id de auth0
-            type: DataTypes.INTEGER,
-            primaryKey: true,
-        },
+     
         firstName: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -20,7 +17,7 @@ module.exports = (sequelize) => {
             unique: true
         },
         phone: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: true
         },
         imagen: {

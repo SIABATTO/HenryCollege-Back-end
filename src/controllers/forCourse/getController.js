@@ -1,26 +1,23 @@
-const {  Course, Teacher  } = require("../../db");
-const fs = require("fs");
+const { Course } = require("../../db");
 
 const getCourses = async () => {
-  // const data = fs.readFileSync('src/controllers/courseControllers/hardcode.json');
-  // const result = JSON.parse(data).courses;
-  const result = await Course.findAll();
+    const result = await Course.findAll();
 
-  const resultMap = await result?.map((e) => {
-    return {
-      id: e.id,
-      name: e.name,
-      tags: e.tags,
-      level: e.level,
-      duration: e.duration,
-      price: e.price,
-      description: e.description,
-    };
-  });
-  return resultMap;
+    const resultMap = await result?.map((e) => {
+        return {
+            id: e.id,
+            name: e.name,
+            tags: e.tags,
+            level: e.level,
+            duration: e.duration,
+            price: e.price,
+            description: e.description,
+        };
+    });
+    return resultMap;
 };
 
-const courseFilter = async ({
+const getCoursesWithFilters = async ({
     name = '',
     level = 'all',
     minDuration = "all",
@@ -30,18 +27,18 @@ const courseFilter = async ({
     sortName = "default",
     sortPrice = "default",
     sortDuration = "default"
- }) => {
+}) => {
     let courses = await getCourses();
 
-  if (name) {
-    courses = courses.filter((c) =>
-      c.name.toLowerCase().includes(name.toLowerCase())
-    );
-  }
+    if (name) {
+        courses = courses.filter((c) =>
+            c.name.toLowerCase().includes(name.toLowerCase())
+        );
+    }
 
-  if (level !== "all") {
-    courses = courses.filter((c) => c.level === level);
-  }
+    if (level !== "all") {
+        courses = courses.filter((c) => c.level === level);
+    }
 
     if (minDuration !== 'all') {
         courses = courses.filter((c) => c.duration >= minDuration)
@@ -72,7 +69,7 @@ const courseFilter = async ({
     }
 
     if (sortPrice !== "default") {
-        courses = courses.sort((a,b) =>{
+        courses = courses.sort((a, b) => {
             if (a.price > b.price) {
                 return sortPrice === "asc" ? 1 : -1
             }
@@ -84,7 +81,7 @@ const courseFilter = async ({
     }
 
     if (sortDuration !== "default") {
-        courses = courses.sort((a,b)=>{
+        courses = courses.sort((a, b) => {
             if (a.duration > b.duration) {
                 return sortDuration === "asc" ? 1 : -1
             }
@@ -92,14 +89,14 @@ const courseFilter = async ({
                 return sortDuration === "asc" ? -1 : 1
             }
             return 0
-        }) 
+        })
     }
-    
+
     return courses;
 }
 
 
 module.exports = {
-  getCourses,
-  courseFilter,
+    getCourses,
+    getCoursesWithFilters,
 };

@@ -47,8 +47,14 @@ Course.belongsToMany(Students, { through: "courseNstudents" })
 Students.belongsToMany(Course, { through: "courseNstudents" })
 Course.hasMany(OrderItem)
 OrderItem.belongsTo(Course)
-Course.belongsTo(Teachers)
-Teachers.hasMany(Course)
+Teachers.hasMany(Course,{
+  foreignKey:"teacherId",
+  sourceKey:"id"
+})
+Course.belongsTo(Teachers,{
+  foreignKey:"teacherId",
+  targetId:"id"
+})
 Students.hasMany(Feedback)
 Feedback.belongsTo(Students)
 Teachers.hasMany(Feedback)
@@ -58,7 +64,9 @@ OrderItem.belongsTo(Order)
 Students.hasMany(Order)
 Order.belongsTo(Students)
 
+
 module.exports = {
+  sequelize,
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
   conn: sequelize,     // para importart la conexión { conn } = require('./db.js');
 };
