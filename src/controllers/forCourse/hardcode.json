@@ -6,7 +6,7 @@
         "CSS"
       ],
       "level": "Basico",
-      "duration": "2",
+      "duration": 2,
       "price": "50",
       "description": "En este curso te enseñamos los fundamentos de CSS, el lenguaje que define la presentación del contenido en la web.",
       "videoSrc": "https://www.youtube.com/embed/W6GTDfrWjXs",
@@ -19,7 +19,7 @@
         "CSS"
       ],
       "level": "Avanzado",
-      "duration": "2",
+      "duration": 2,
       "price": "100",
       "description": "En este curso entramos mas en el mundo CSS, el lenguaje que define la presentación del contenido en la web.",
       "videoSrc": "https://www.youtube.com/embed/JmSWdAl20bs",
@@ -32,7 +32,7 @@
         "HTML"
       ],
       "level": "Avanzado",
-      "duration": "2",
+      "duration": 2,
       "price": "100",
       "description": "En este curso conoceremos mas sobre html, y su uso en la estructura de una página.",
       "videoSrc": "https://www.youtube.com/embed/MJkdaVFHrto",
@@ -45,7 +45,7 @@
         "HTML - CSS"
       ],
       "level": "Avanzado",
-      "duration": "2",
+      "duration": 2,
       "price": "100",
       "description": "En este curso veremos como implementar estilo a nuestra estructura con html y css",
       "videoSrc": "https://www.youtube.com/embed/XqFR2lqBYPs",
@@ -58,8 +58,7 @@
         "Framework"
       ],
       "level": "alto",
-      "duration": 2,
-      "price": "200",
+      "duration": 3,      "price": "200",
       "description": "En este curso te enseñamos a usar BootStrap el Framework Frontend más popular para crear interfaces web",
       "videoSrc": "https://www.youtube.com/embed/ng8ur8KNrpU",
       "imageSrc": "https://i.ytimg.com/vi_webp/ng8ur8KNrpU/sddefault.webp",
@@ -71,7 +70,7 @@
         "JS"
       ],
       "level": "Basico",
-      "duration": "2",
+      "duration": 2,
       "price": "100",
       "description": "En este curso aprenderemos sobre el lenguaje JavaScript y su implementación para hacer una pagina dinámica",
       "videoSrc": "https://www.youtube.com/embed/z95mZVUcJ-E",
@@ -84,7 +83,7 @@
         "JS"
       ],
       "level": "intermedio",
-      "duration": "3",
+      "duration": 3,
       "price": "200",
       "description": "En este video te explicamos cómo y cuando usar constantes",
       "videoSrc": "https://www.youtube.com/embed/PIHZRj99nHU",
@@ -97,7 +96,7 @@
         "JS"
       ],
       "level": "Avanzado",
-      "duration": "4",
+      "duration": 4,
       "price": "300",
       "description": "Ejercicios practicos para mostrar todo tu conocimiento en JS",
       "videoSrc": "https://www.youtube.com/embed/iBAW0xIB6II",
@@ -110,7 +109,7 @@
         "REACT"
       ],
       "level": "Basico, Intermedio",
-      "duration": "4",
+      "duration": 4,
       "price": "400",
       "description": "En este video aprende los fundamentos de react, crearas 4 proyectos paso a paso y aprenderas los fundamentos para comenzar a crear aplicaciones web interactivas con React.",
       "videoSrc": "www.youtube.com/embed/6Jfk8ic3KVk",
@@ -123,7 +122,7 @@
         "NODE.JS, EXPRESS"
       ],
       "level": "Basico",
-      "duration": "4",
+      "duration": 4,
       "price": "400",
       "description": "Aprende los fundamentos de Node.js y Express paso a paso en este curso de 8.5 horas desde cero. Practica con un proyecto práctico y ejemplos",
       "videoSrc": "https://www.youtube.com/embed/1hpc70_OoAg",
@@ -136,7 +135,7 @@
         "SQL"
       ],
       "level": "Basico",
-      "duration": "4",
+      "duration": 4,
       "price": "350",
       "description": "En este tutorial, repasaremos todos los conceptos fundamentales de la programación SQL. Cubriremos la instrucción SELECT, JOINS, agregados, operaciones de conjuntos... entre otras cosas. Aprenderás todo lo necesario para dominar los fundamentos del lenguaje de consultas SQL (Structured Query language).",
       "videoSrc": "https://www.youtube.com/embed/_8MjEhfKRbI",
