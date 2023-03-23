@@ -18,7 +18,7 @@ const createStudent = async (info) => {
         })
 
         if (!data._id) throw new Error("No se pudo crear el estudiante en Auth0")
-    
+
         // Crea el estudiante en nuestra base de datos
         const newStudent = await Students.create({
             firstName,
@@ -36,4 +36,35 @@ const createStudent = async (info) => {
     }
 }
 
-module.exports = createStudent
+const logInStudent = async (info) => {
+    try {
+        const { email, password } = info
+
+        const { data } = await axios.post(`${process.env.AUTH0_DOMAIN}/oauth/token`, {
+            grant_type: 'password',
+            client_id: process.env.AUTH0_CLIENT_ID,
+            client_secret: process.env.AUTH0_CLIENT_SECRET,
+            audience: process.env.AUTH0_AUDIENCE,
+            username: email,
+            password,
+        })
+
+        if (!data.access_token) throw new Error("No se pudo loguear el estudiante en Auth0")
+
+        const student = await Students.findOne({
+            where: {
+                email,
+            }
+        })
+
+        return {student, auth: data}
+    } catch (error) {
+        console.log(error);
+        throw new Error(error)
+    }
+}
+
+module.exports = {
+    createStudent,
+    logInStudent,
+}
