@@ -10,10 +10,10 @@ conn.sync({ force: true }).then(() => {
         const data = fs.readFileSync('src/controllers/forCourse/hardcode.json');
         const { courses } = JSON.parse(data);
 
-        users.forEach(async (user) => {
+        const usersPromises = users.map((user) => {
             const Model = user.user_metadata.userType === 'teacher' ? Teachers : Students;
 
-            await Model.findOrCreate({
+            return Model.findOrCreate({
                 where: {
                     email: user.email
                 },
@@ -27,6 +27,7 @@ conn.sync({ force: true }).then(() => {
             })
         });
 
+        await Promise.all(usersPromises);
         await Course.bulkCreate(courses);
     }
 
