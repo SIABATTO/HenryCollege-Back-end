@@ -16,6 +16,8 @@ const createStudent = async (info) => {
                 phone,
             }
         })
+
+        if (!data._id) throw new Error("No se pudo crear el estudiante en Auth0")
     
         // Crea el estudiante en nuestra base de datos
         const newStudent = await Students.create({
