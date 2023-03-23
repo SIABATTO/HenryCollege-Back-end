@@ -3,7 +3,7 @@ module.exports = (sequelize) => {
     sequelize.define("Students", {
         active: {
             type: DataTypes.BOOLEAN,
-            default: true,
+            defaultValue: true,
         },
        firstName: {
             type: DataTypes.STRING,
@@ -26,6 +26,10 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false,
             unique: true
+        },
+        emailVerified: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false,
         }
     })
 } 

@@ -1,13 +1,12 @@
 const { Students } = require("../../db");
 const { auth0Login, auth0SignUp } = require("../../utils/auth0Utils");
-var axios = require("axios").default;
 
 const createStudent = async (info) => {
     const { firstName, lastName, email, phone } = info
 
     try {
         // Crea el estudiante en Auth0
-        const auth = await auth0SignUp(info)
+        const auth = await auth0SignUp(info, 'student')
 
         if (!auth._id) throw new Error("No se pudo crear el estudiante en Auth0")
 
@@ -19,6 +18,7 @@ const createStudent = async (info) => {
             phone,
             auth0Id: auth._id,
             active: true,
+            emailVerified: false,
         })
 
         return newStudent
@@ -40,7 +40,7 @@ const logInStudent = async (info) => {
             }
         })
 
-        return {student, auth}
+        return { student, auth }
     } catch (error) {
         throw new Error(error)
     }
