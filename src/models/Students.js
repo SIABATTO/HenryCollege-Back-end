@@ -25,6 +25,7 @@ module.exports = (sequelize) => {
         auth0Id: {
             type: DataTypes.STRING,
             allowNull: false,
+            unique: true
         }
     })
 } 
