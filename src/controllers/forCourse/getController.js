@@ -1,7 +1,9 @@
-const { Course } = require("../../db");
+const { Course, Teachers } = require("../../db");
 
 const getCourses = async () => {
-    const result = await Course.findAll();
+    const result = await Course.findAll({
+        include: Teachers
+    });
 
     const resultMap = await result?.map((e) => {
         return {
@@ -12,6 +14,9 @@ const getCourses = async () => {
             duration: e.duration,
             price: e.price,
             description: e.description,
+            imageSrc: e.imageSrc,
+            videoSrc: e.videoSrc,
+            teacher: e.Teacher
         };
     });
     return resultMap;

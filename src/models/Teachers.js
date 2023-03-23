@@ -2,7 +2,6 @@ const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
     sequelize.define("Teachers", {
-     
         firstName: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -20,9 +19,18 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: true
         },
-        imagen: {
+        image: {
             type: DataTypes.BLOB,
             allowNull: true
+        },
+        auth0Id: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true
+        },
+        emailVerified: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false,
         }
     })
 }
