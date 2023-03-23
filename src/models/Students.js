@@ -1,7 +1,10 @@
 const { DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
     sequelize.define("Students", {
-      
+        active: {
+            type: DataTypes.BOOLEAN,
+            default: true,
+        },
        firstName: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -15,20 +18,14 @@ module.exports = (sequelize) => {
             allowNull: false,
             unique: true
         },
-        password:{
-             type: DataTypes.STRING,
-             allowNull:false,
-             unique: true
-        },
         phone: {
             type: DataTypes.STRING,
             allowNull: true
+        },
+        auth0Id: {
+            type: DataTypes.STRING,
+            allowNull: false,
         }
     })
 } 
 
-/*active: {
-    type: DataTypes.BOOLEAN,
-    default: true,
-    allowNull: false,
-},*/

@@ -3,9 +3,11 @@ const router = Router()
 const {courseRouter} = require("./courseRouter")
 const studentsRouter = require("./studentsRouter")
 const teachersRouter = require("./teachersRouter")
+const checkJwt = require("../handlers/forAuth/protectRoutes")
 
-router.use("/course", courseRouter)
+// Rutas protegidas
+router.use("/course", checkJwt, courseRouter)
 router.use("/students", studentsRouter)
 router.use("/teachers", teachersRouter)
 
-module.exports= router; 
+module.exports = router; 
