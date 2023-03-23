@@ -1,23 +1,15 @@
-const { Students } = require("../../db")
+const { Students } = require("../../db");
+const { auth0Login, auth0SignUp } = require("../../utils/auth0Utils");
 var axios = require("axios").default;
 
 const createStudent = async (info) => {
-    const { firstName, lastName, email, password, phone } = info
+    const { firstName, lastName, email, phone } = info
 
     try {
         // Crea el estudiante en Auth0
-        const { data } = await axios.post(`${process.env.AUTH0_DOMAIN}/dbconnections/signup`, {
-            connection: 'Username-Password-Authentication',
-            password,
-            email,
-            'user_metadata': {
-                firstName,
-                lastName,
-                phone,
-            }
-        })
+        const auth = await auth0SignUp(info)
 
-        if (!data._id) throw new Error("No se pudo crear el estudiante en Auth0")
+        if (!auth._id) throw new Error("No se pudo crear el estudiante en Auth0")
 
         // Crea el estudiante en nuestra base de datos
         const newStudent = await Students.create({
@@ -25,13 +17,12 @@ const createStudent = async (info) => {
             lastName,
             email,
             phone,
-            auth0Id: data._id,
+            auth0Id: auth._id,
             active: true,
         })
 
         return newStudent
     } catch (error) {
-        console.log(error);
         throw new Error(error)
     }
 }
@@ -39,17 +30,9 @@ const createStudent = async (info) => {
 const logInStudent = async (info) => {
     try {
         const { email, password } = info
+        const auth = await auth0Login(email, password)
 
-        const { data } = await axios.post(`${process.env.AUTH0_DOMAIN}/oauth/token`, {
-            grant_type: 'password',
-            client_id: process.env.AUTH0_CLIENT_ID,
-            client_secret: process.env.AUTH0_CLIENT_SECRET,
-            audience: process.env.AUTH0_AUDIENCE,
-            username: email,
-            password,
-        })
-
-        if (!data.access_token) throw new Error("No se pudo loguear el estudiante en Auth0")
+        if (!auth.access_token) throw new Error("No se pudo loguear el estudiante en Auth0")
 
         const student = await Students.findOne({
             where: {
@@ -57,9 +40,8 @@ const logInStudent = async (info) => {
             }
         })
 
-        return {student, auth: data}
+        return {student, auth}
     } catch (error) {
-        console.log(error);
         throw new Error(error)
     }
 }
