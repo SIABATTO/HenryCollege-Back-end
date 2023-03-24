@@ -56,7 +56,7 @@ Students.hasMany(Feedback)
 Feedback.belongsTo(Students)
 Teachers.hasMany(Feedback)
 Feedback.belongsTo(Teachers)
-Students.belongsTo(Membership)
+Students.hasOne(Membership)
 Membership.belongsTo(Students)
 
 
