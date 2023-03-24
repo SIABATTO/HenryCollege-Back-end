@@ -33,8 +33,7 @@ sequelize.models = Object.fromEntries(capsEntries);
 const {
   Course,
   Feedback,
-  Order,
-  OrderItem,
+  Membership,
   Students,
   Teachers
 } = sequelize.models;
@@ -45,8 +44,6 @@ Course.hasMany(Feedback)
 Feedback.belongsTo(Course)
 Course.belongsToMany(Students, { through: "courseNstudents" })
 Students.belongsToMany(Course, { through: "courseNstudents" })
-Course.hasMany(OrderItem)
-OrderItem.belongsTo(Course)
 Teachers.hasMany(Course,{
   foreignKey:"teacherId",
   sourceKey:"id"
@@ -59,10 +56,8 @@ Students.hasMany(Feedback)
 Feedback.belongsTo(Students)
 Teachers.hasMany(Feedback)
 Feedback.belongsTo(Teachers)
-Order.hasMany(OrderItem)
-OrderItem.belongsTo(Order)
-Students.hasMany(Order)
-Order.belongsTo(Students)
+Students.belongsTo(Membership)
+Membership.belongsTo(Students)
 
 
 module.exports = {
