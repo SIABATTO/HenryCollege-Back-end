@@ -3,7 +3,7 @@ const router = Router()
 const courseRouter = require("./courseRouter")
 const studentsRouter = require("./studentsRouter")
 const teachersRouter = require("./teachersRouter")
-const  membershipRoute= require("./membershipRoute")
+const  membershipRoute= require("../handlers/membershipHandler/membershipHandler.js")
 
 // Rutas protegidas
 router.use("/course", courseRouter)
