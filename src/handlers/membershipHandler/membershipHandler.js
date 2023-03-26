@@ -30,7 +30,7 @@ member.post('/create-checkout-session', async (req, res)=>{
     res.redirect(303, session.url)
 })
 
-member.post('/create-portal/session', async (req,res)=>{
+member.post('/create-portal-session', async (req,res)=>{
     const { session_id } = req.body
 
     const checkoutSession = await stripe.checkout.sessions.retrieve(session_id)
