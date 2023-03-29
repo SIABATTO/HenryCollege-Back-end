@@ -1,7 +1,7 @@
 const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
-    sequelize.define("Order", {
+    sequelize.define("Membership", {
         id: { // viene de la pasarela de pagos
             type: DataTypes.INTEGER,
             primaryKey: true,
@@ -11,14 +11,17 @@ module.exports = (sequelize) => {
             type: DataTypes.DATE,
             allowNull: false,
         },
-        totalPrice: {
+        pricePaid: {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        PaymentId: { //viene de la pasarela de pagos
+        paymentId: { //viene de la pasarela de pagos
             type: DataTypes.INTEGER,
             primaryKey: true,
-            allowNull: true,
+        },
+        expirationDate: {
+            type: DataTypes.DATE,
+            allowNull: false,      
         }
     })
 }
